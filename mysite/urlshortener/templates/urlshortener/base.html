@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>URL Shortener App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  </head>
+
+  <body style="background-color:#41B3A3;">
+    <br> <br> <br>
+    <div class="container-fluid">
+      <form class="" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <label for="text">Shrink your messy url!</label>
+        <input type="text" name="engine" value="">
+        <input type="submit" name="" value="Submit">
+      </form>
+    </div>
+
+    <br> <br>
+
+    {% if url_object %}
+      <p>{{url_object.engine}} => <a href="{% url 'redirection' url_object.shortcut %}">{{shrinked_url}}</a></p>
+    {% endif %}
+
+
+  </body>
+</html>
